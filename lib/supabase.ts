@@ -1,9 +1,13 @@
+import { createClient } from '@supabase/supabase-js'
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string
 
-import { createClient } from '@supabase/supabase-js';
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables')
+}
 
-// Fix: Use process.env instead of import.meta.env to resolve TypeScript errors and follow project standards
-const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://puyntxsuqakytkwsjivr.supabase.co';
-const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_H2vQxpm-Eaan1e4_oXAPKQ_C6VHP7TY';
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(
+  supabaseUrl,
+  supabaseAnonKey
+)
