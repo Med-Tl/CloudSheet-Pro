@@ -1,0 +1,5 @@
+{
+  "name": "CloudSheet Pro",
+  "description": "A high-performance, production-ready Excel-like spreadsheet application built with React, TypeScript, and Supabase.",
+  "requestFramePermissions": []
+}
